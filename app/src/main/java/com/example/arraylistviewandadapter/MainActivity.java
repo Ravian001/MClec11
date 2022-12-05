@@ -3,6 +3,7 @@ package com.example.arraylistviewandadapter;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
@@ -25,10 +26,27 @@ public class MainActivity extends AppCompatActivity {
 
         ArrayList<String> arr = new ArrayList<>();
         arr.add("Hassan");
+
         ArrayAdapter<String> adp = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, arr);
         lw.setAdapter(adp);
 
 
+        btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String s =edt.getText().toString();
+                arr.add(s);
+                lw.setAdapter(adp);
+                btn.setText(s);
+            }
+        });
+
+
+
+
 
     }
+
+
+
 }
